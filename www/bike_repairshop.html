@@ -42,7 +42,7 @@
                 <ul data-role="listview">
                   <li><a href="index.html" target="_blank" class="ui-btn ui-icon-home ui-btn-icon-left">홈</a></li>
                   <li><a href="bike_registration.html" target="_blank" class="ui-btn ui-icon-check ui-btn-icon-left">내 바이크 등록</a></li>
-                  <li><a href="bike_repairshop.html" target="_blank" class="ui-btn ui-icon-location ui-btn-icon-left">오토바이 정비소 보기</a></li>
+                  <li><a href="map.html" target="_blank" class="ui-btn ui-icon-location ui-btn-icon-left">오토바이 정비소 보기</a></li>
                   <li><a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">견적요청 리스트</a></li>
                   <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-left">계정 및 설정</a></li>
                 </ul>
@@ -56,71 +56,42 @@
 
             <!-- 컨텐츠가 표시되는 영역을 지정 -->
             <div data-role="main" class="ui-content">
-              <ul data-role="listview">
-                <li>
-                  <a href="#">
-                  <img src="img/bike1.jpg" style="height:80px">
-                  <h2>본격 월동 준비의 시작...</h2>
-                  <p>소모품 교체의 모든것!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike2.jpg" style="height:80px">
-                  <h2>경기도 포천</h2>
-                  <p>바이크 외관 도색의 달인을 만나다!!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike3.jpg" style="height:80px">
-                  <h2>겨울철 타이어 교환</h2>
-                  <p>타이어 교환 필수 사항 총정리!!!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike4.jpg" style="height:80px">
-                  <h2>본격 월동 준비의 시작...</h2>
-                  <p>소모품 교체의 모든것!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike5.jpg" style="height:80px">
-                  <h2>경기도 포천</h2>
-                  <p>바이크 외관 도색의 달인을 만나다!!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike6.jpg" style="height:80px">
-                  <h2>겨울철 타이어 교환</h2>
-                  <p>타이어 교환 필수 사항 총정리!!!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike7.jpg" style="height:80px">
-                  <h2>본격 월동 준비의 시작...</h2>
-                  <p>소모품 교체의 모든것!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike8.jpg" style="height:80px">
-                  <h2>경기도 포천</h2>
-                  <p>바이크 외관 도색의 달인을 만나다!!</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <img src="img/bike9.jpg" style="height:80px">
-                  <h2>겨울철 타이어 교환</h2>
-                  <p>타이어 교환 필수 사항 총정리!!!</p>
-                  </a>
-                </li>
+              <form class="ui-filterable">
+                <input id="search_repairshop" data-type="search" placeholder="상호명으로 검색">
+              </form>
+              <ul data-role="listview" data-filter="true" data-input="#search_repairshop">
+                <li><a href="#shop_detail" data-rel="popup" data-position-to="window" data-transition="flip">가아오토바이(1km)</a></li>
+                <li><a href="#">나아오토바이(1km)</a></li>
+                <li><a href="#">다아오토바이(1km)</a></li>
+                <li><a href="#">라아오토바이(1km)</a></li>
+                <li><a href="#">마아오토바이(1km)</a></li>
+                <li><a href="#">바아오토바이(1km)</a></li>
+                <li><a href="#">사아오토바이(1km)</a></li>
+                <li><a href="#">아아오토바이(1km)</a></li>
+                <li><a href="#">자아오토바이(1km)</a></li>
+                <li><a href="#">차아오토바이(1km)</a></li>
+                <li><a href="#">카아오토바이(1km)</a></li>
+                <li><a href="#">타아오토바이(1km)</a></li>
+                <li><a href="#">파아오토바이(1km)</a></li>
+                <li><a href="#">하아오토바이(1km)</a></li>
+                <li><a href="#">기아오토바이(1km)</a></li>
+                <li><a href="#">디아오토바이(1km)</a></li>
               </ul>
+
+              <div data-role="popup" id="shop_detail" data-overlay-theme="b">
+
+                <div data-role="main" class="ui-content">
+                  <img src="img/bike3.jpg" style="width:300px;">
+                  <p>주소: 경기도 안산시 단원구 광덕3로 109</p>
+                  <p>전화번호: 031-483-1105</p>
+                  <a href="map.html" target="_blank"><h2>지도로보기</h2></a>
+                  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                  <a href="#" class="ui-btn ui-btn-b ui-btn-inline ui-corner-all ui-shadow">직접견적받기</a>
+                  <a href="#" class="ui-btn ui-btn-b ui-btn-inline ui-corner-all ui-shadow">전체견적받기</a>
+                </div>
+
+              </div>
+
             </div><!-- /content -->
 
             <!-- /footer -->
