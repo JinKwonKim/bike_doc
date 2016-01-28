@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <head>
+      <meta charset="utf-8" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="msapplication-tap-highlight" content="no" />
+      <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width" />
+      <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-            <!-- jQuery mobile에서 사용하는 css, javascript. 아래 3개의 리소스를 로드해야 함 -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+          <!-- jQuery mobile에서 사용하는 css, javascript. 아래 3개의 리소스를 로드해야 함 -->
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-          <!-- 크롬에서 발생하는 에러해결위한 코드 (((위치는 반드시 여기에 위치 중요)))
-          Uncaught SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL  cannot be created in a document with origin 'null'. -->
-        <script>
-        $(document).bind('mobileinit',function(){
-            //$.mobile.changePage.defaults.changeHash = false;
-            $.mobile.hashListeningEnabled = false;
-            //$.mobile.pushStateEnabled = false;
-        });
-        </script>
+        <!-- 크롬에서 발생하는 에러해결위한 코드 (((위치는 반드시 여기에 위치 중요)))
+        Uncaught SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL  cannot be created in a document with origin 'null'. -->
+      <script>
+      $(document).bind('mobileinit',function(){
+          //$.mobile.changePage.defaults.changeHash = false;
+          $.mobile.hashListeningEnabled = false;
+          //$.mobile.pushStateEnabled = false;
+      });
+      </script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
-        <!-- Add Google Maps -->
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
+      <!-- Add Google Maps -->
+      <script src="http://maps.googleapis.com/maps/api/js"></script>
 
-        <title>Bike Doctor</title>
-    </head>
+      <title>Bike Doctor</title>
+  </head>
 
-    <body>
-        <!-- data-role는 jQuery mobile에서 해당 엘리먼트가 어떤 UI인지를 지정한다. 아래 page는 이 엘리먼트가 가장 큰 단위인 페이지임을 의미한다. -->
-        <div data-role="page">
-                <!-- panel 지정 -->
-            <div data-role="panel" id="myMenu" data-position-fixed="true" >
-              <div id="menuTop" data-role="content" class="ui-content">
-                <h1 class="ui-btn ui-icon-user ui-btn-icon-top">황창하 라이더님</h1>
-                <p>노스텔지어 울프 125cc</p>
-              </div>
-                <ul data-role="listview">
-                  <li><a href="index.html" target="_blank" class="ui-btn ui-icon-home ui-btn-icon-left">홈</a></li>
-                  <li><a href="bike_registration.html" target="_blank" class="ui-btn ui-icon-check ui-btn-icon-left">내 바이크 등록</a></li>
-                  <li><a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">오토바이 정비소 보기</a></li>
-                  <li><a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">견적요청 리스트</a></li>
-                  <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-left">계정 및 설정</a></li>
-                </ul>
+  <body>
+      <!-- data-role는 jQuery mobile에서 해당 엘리먼트가 어떤 UI인지를 지정한다. 아래 page는 이 엘리먼트가 가장 큰 단위인 페이지임을 의미한다. -->
+      <div data-role="page">
+          <!-- panel 지정 -->
+          <div data-role="panel" id="myMenu" data-position-fixed="true" >
+            <div id="menuTop" data-role="content" class="ui-content">
+              <h1 class="ui-btn ui-icon-user ui-btn-icon-top">황창하 라이더님</h1>
+              <p>노스텔지어 울프 125cc</p>
             </div>
-
-                <!-- 제목과 글로벌 메뉴를 표시하는 엘리먼트를 지정 -->
-            <div data-role="header" data-position="fixed" data-theme="b" >
-              <a href="#myMenu" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-notext">Bars</a>
-                <h1>Bike Doc</h1>
-            </div><!-- /header -->
-
-                <!-- 컨텐츠가 표시되는 영역을 지정 -->
-            <div data-role="main" class="ui-content">
-              <form method="post" action="bike_registration.php" class="ui-filterable">
-                <label for="search" style="text-align:left;" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all ui-shadow">내 바이크 등록</label>
-                <input data-type="search" name="search" id="search_registration" placeholder="모델명 검색 (예:할리데이비슨)">
-                <input type="submit" data-icon="check" data-iconpos="right" value="등록하기" data-theme="b">
-              </form>
-              <ul data-role="listview" data-filter="true" data-input="#search_registration">
-                <li>울프 기본형 125cc</li>
-                <li>노스텔지어 울프 125cc</li>
-                <li>울프 syn 프리미엄 256cc</li>
-                <li>카브리울 프로 50cc</li>
-                <li>울프 기본형 125cc</li>
-                <li>노스텔지어 울프 125cc</li>
-                <li>울프 syn 프리미엄 256cc</li>
-                <li>카브리울 프로 50cc</li>
-                <li>울프 기본형 125cc</li>
-                <li>노스텔지어 울프 125cc</li>
-                <li>울프 syn 프리미엄 256cc</li>
-                <li>카브리울 프로 50cc</li>
-                <li>울프 기본형 125cc</li>
-                <li>노스텔지어 울프 125cc</li>
-                <li>울프 syn 프리미엄 256cc</li>
-                <li>카브리울 프로 50cc</li>
+              <ul data-role="listview">
+                <li><a href="index.html" target="_blank" class="ui-btn ui-icon-home ui-btn-icon-left">홈</a></li>
+                <li><a href="bike_registration.html" target="_blank" class="ui-btn ui-icon-check ui-btn-icon-left">내 바이크 등록</a></li>
+                <li><a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">오토바이 정비소 보기</a></li>
+                <li><a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">견적요청 리스트</a></li>
+                <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-left">계정 및 설정</a></li>
               </ul>
-            </div><!-- /content -->
+          </div>
 
-            <!-- /footer -->
-            <div data-role="footer" style="text-align:center;" data-position="fixed" data-theme="b">
-              <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">수리 또는 튜닝 견적 받아보기</a>
-            </div><!-- /footer -->
+          <!-- 제목과 글로벌 메뉴를 표시하는 엘리먼트를 지정 -->
+          <div data-role="header" data-position="fixed" data-theme="b" >
+            <a href="#myMenu" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-notext">Bars</a>
+              <h1>Bike Doc</h1>
+          </div><!-- /header -->
 
-        </div><!-- /page -->
+          <!-- 컨텐츠가 표시되는 영역을 지정 -->
+          <div data-role="main" class="ui-content">
+            <form method="post" action="bike_registration.php" class="ui-filterable">
+              <label for="search" style="text-align:left;" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all ui-shadow">내 바이크 등록</label>
+              <input data-type="search" name="search" id="search_registration" placeholder="모델명 검색 (예:할리데이비슨)">
+              <input type="submit" data-icon="check" data-iconpos="right" value="등록하기" data-theme="b">
+            </form>
+            <ul data-role="listview" data-filter="true" data-input="#search_registration">
+              <li>울프 기본형 125cc</li>
+              <li>노스텔지어 울프 125cc</li>
+              <li>울프 syn 프리미엄 256cc</li>
+              <li>카브리울 프로 50cc</li>
+              <li>울프 기본형 125cc</li>
+              <li>노스텔지어 울프 125cc</li>
+              <li>울프 syn 프리미엄 256cc</li>
+              <li>카브리울 프로 50cc</li>
+              <li>울프 기본형 125cc</li>
+              <li>노스텔지어 울프 125cc</li>
+              <li>울프 syn 프리미엄 256cc</li>
+              <li>카브리울 프로 50cc</li>
+              <li>울프 기본형 125cc</li>
+              <li>노스텔지어 울프 125cc</li>
+              <li>울프 syn 프리미엄 256cc</li>
+              <li>카브리울 프로 50cc</li>
+            </ul>
+          </div><!-- /content -->
 
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+          <!-- /footer -->
+          <div data-role="footer" style="text-align:center;" data-position="fixed" data-theme="b">
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">수리 또는 튜닝 견적 받아보기</a>
+          </div><!-- /footer -->
 
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+      </div><!-- /page -->
 
-    </body>
+      <script type="text/javascript" src="phonegap.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+
+      <script type="text/javascript">
+          app.initialize();
+      </script>
+
+  </body>
 
 </html>
